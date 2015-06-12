@@ -7,10 +7,6 @@
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="<?php echo URL ?>css/bootstrap.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-        <!--[if lt IE 9]>
-            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
         <link href="<?php echo URL ?>css/styles.css" rel="stylesheet">
     </head>
     <body>
@@ -31,7 +27,7 @@
           <a href="#">Productos</a>
         </li>
         <li>
-          <a href="#">PQR</a>
+          <a href="<?php echo URL ?>pqr/index">PQR</a>
         </li>
 
       </ul>

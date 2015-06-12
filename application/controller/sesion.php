@@ -1,11 +1,11 @@
-<?php
+<?php 
 
-class productos extends Controller
+class sesion extends Controller
 {   
     private $mdlModel=null;
 
     function __construct(){
-        $this->mdlModel = $this->loadModel("mdlproductos");
+        $this->mdlModel = $this->loadModel("mdlsesion");
     }
     /**
      * PAGE: index
@@ -13,14 +13,10 @@ class productos extends Controller
      */
     public function index()
     {
-        // getting all songs and amount of songs
-        $songs = $this->mdlModel->getAllSongs();
-        $amount_of_songs = $this->mdlModel->getAmountOfSongs();
-
        // load views. within the views we can echo out $songs and $amount_of_songs easily
-        require APP . 'view/_templates/productos/header.php';
-        require APP . 'view/productos/index.php';
-        require APP . 'view/_templates/productos/footer.php';
+        require APP . 'view/_templates/sesion/header.php';
+        require APP . 'view/sesion/index.php';
+        require APP . 'view/_templates/sesion/footer.php';
     }
 
     // /**
@@ -31,17 +27,17 @@ class productos extends Controller
     //  * the user back to songs/index via the last line: header(...)
     //  * This is an example of how to handle a POST request.
     //  */
-    // public function addSong()
-    // {
-    //     // if we have POST data to create a new song entry
-    //     if (isset($_POST["submit_add_song"])) {
-    //         // do addSong() in model/model.php
-    //         $this->mdlModel->addSong($_POST["artist"], $_POST["track"],  $_POST["link"]);
-    //     }
+    public function addUser()
+    {
+        // if we have POST data to create a new song entry
+        if (isset($_POST["btnIngresar"])) {
+            // do addSong() in model/model.php
+            $this->mdlModel->adduser($_POST["txtNombreUsuario"], $_POST["txtContrasenia"]);
+        }
 
-    //     // where to go after song has been added
-    //     header('location: ' . URL . 'productos/index');
-    // }
+        // where to go after song has been added
+        header('location: ' . URL . 'productos/index');
+    }
 
     // /**
     //  * ACTION: deleteSong
@@ -122,3 +118,5 @@ class productos extends Controller
     // }
 
 }
+
+ ?>

@@ -1,10 +1,88 @@
+<!-- Modal del registro -->
+<div class="modal fade color-purple" id="myModalR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Registrate</h4>
+      </div>
+      <div class="modal-body">
+        <form action="" class="form-vertical">
+          <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" id="txtNombre" name="txtNombre">
+          </div>
+          <div class="form-group">
+            <label for="">Apellido</label>
+            <input type="text" class="form-control" id="txtApellido" name="txtApellido">
+          </div>
+          <div class="form-group">
+            <label for="">Nombre de usuario</label>
+            <input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario">
+          </div>
+          <div class="form-group">
+            <label for="">Contraseña</label>
+            <input type="password" class="form-control" id="txtContraseña" name="txtContraseña">
+          </div>
+          <div class="form-group">
+            <label for="">Pregunta de seguridad</label>
+            <select class="form-control">
+              <option>¿Cual es el nombre de tu primer mascota?</option>
+              <option>¿Donde vive tu papá?</option>
+              <option>¿Como se llama tu mejor amigo?</option>
+              <option>¿Cual era tu materia favorito?</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="">Respuesta de seguridad</label>
+            <input type="text" class="form-control" id="txtRespuesta" name="txtRespuesta">
+          </div>
+          <div class="form-group">
+            <label for="">Tipo usuario</label>
+            <input type="text" class="form-control" id="txtTipoUsuario" name="txtTipoUsuario">
+          </div>
 
-
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCerrar">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="btnRegistrarse">Registrarse</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal del Login -->
+<div class="modal fade color-purple" id="myModalL" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ingresa</h4>
+      </div>
+      <div class="modal-body">
+        <form action="" class="form-vertical">
+          <div class="form-group">
+            <label for="">Nombre de usuario</label>
+            <input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario">
+          </div>
+          <div class="form-group">
+            <label for="">Contraseña</label>
+            <input type="text" class="form-control" id="txtContraseña" name="txtContraseña">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Iniciar sesion</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="masthead">  
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Productos
+        <h1>PQR
           <p class="lead"></p>
         </h1>
       </div>
@@ -12,14 +90,14 @@
         <div class="well well-lg"> 
           <div class="row">
             <div class="col-sm-12">
-             <h2 class="color-white"><a href="javascript:proyecto.modal(myModalP)" class="color-white">Registrar producto</a></h2>
+             <h2 class="color-white"><a href="javascript:proyecto.modal(myModalP)" class="color-white">Registrar PQR</a></h2>
 
              <div class="modal fade color-purple" id="myModalP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header color-purple">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title color-purple" id="myModalLabel">Registra tu producto</h4>
+                    <h4 class="modal-title color-purple" id="myModalLabel">Registra tu PQR</h4>
                   </div>
                   <div class="modal-body">
                     <form action="" class="form-vertical">
@@ -68,90 +146,13 @@
   </div> 
 </div><!-- /cont -->
 </div>
-
-
 <div class="container">
   <div class="row">
     <div class="col-md-12"> 
       <div class="panel">
         <div class="panel-body">
           <!--/stories-->
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/men/58.jpg" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>Repurpose Content to Reach a Wider Audience</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default">97thfloor.com</span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">2 hours ago  • <a href="#" class="text-muted">Read More</a></small>
-                </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/women/56.jpg" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>14 Useful Sites for Designers</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default">devgarage.com</span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Yesterday • <a href="#" class="text-muted">Read More</a></small>
-                </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/men/29.jpg" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>Measuring Your Link Building with Google Analytics</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default">searchenginewatch.com</span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Yesterday • <a href="#" class="text-muted">Read More</a></small>
-                </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/women/56.jpg" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>Dramatically Raise the Value of Any Piece of Content with These 27 Tactics</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default">searchenginewatch.com</span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">2 days ago • <a href="#" class="text-muted">Read More</a></small>
-                </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          
+       
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">

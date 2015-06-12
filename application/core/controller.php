@@ -48,3 +48,4 @@ class Controller
         return new $nombreModel($this->db);
     }
 }
+?>

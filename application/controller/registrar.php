@@ -1,57 +1,34 @@
-<?php
+<?php 
 
-class productos extends Controller
+class registrar extends Controller
 {   
     private $mdlModel=null;
 
     function __construct(){
-        $this->mdlModel = $this->loadModel("mdlproductos");
+        $this->mdlModel = $this->loadModel("mdlregistrar");
     }
-    /**
-     * PAGE: index
-     * This method handles what happens when you move to http://yourproject/songs/index
-     */
+
     public function index()
     {
-        // getting all songs and amount of songs
-        $songs = $this->mdlModel->getAllSongs();
-        $amount_of_songs = $this->mdlModel->getAmountOfSongs();
-
-       // load views. within the views we can echo out $songs and $amount_of_songs easily
-        require APP . 'view/_templates/productos/header.php';
-        require APP . 'view/productos/index.php';
-        require APP . 'view/_templates/productos/footer.php';
+        require APP . 'view/_templates/sesion/header.php';
+        require APP . 'view/registrar/index.php';
+        require APP . 'view/_templates/sesion/footer.php';
     }
 
-    // /**
-    //  * ACTION: addSong
-    //  * This method handles what happens when you move to http://yourproject/songs/addsong
-    //  * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "add a song" form on songs/index
-    //  * directs the user after the form submit. This method handles all the POST data from the form and then redirects
-    //  * the user back to songs/index via the last line: header(...)
-    //  * This is an example of how to handle a POST request.
-    //  */
-    // public function addSong()
-    // {
-    //     // if we have POST data to create a new song entry
-    //     if (isset($_POST["submit_add_song"])) {
-    //         // do addSong() in model/model.php
-    //         $this->mdlModel->addSong($_POST["artist"], $_POST["track"],  $_POST["link"]);
-    //     }
+    public function addUser(){
+        if (isset($_POST["btnRegistrar"])) {
+            $this->mdlModel->__SET('nombre',$_POST["txtNombre"]);
+            $this->mdlModel->__SET('apellido',$_POST["txtApellido"]);
+            $this->mdlModel->__SET('nombreUsuario',$_POST["txtNombreUsuario"]);
+            $this->mdlModel->__SET('contrasenia',$_POST["txtContrasenia"]);
+            $this->mdlModel->__SET('preguntaSeguridad',$_POST["ddlPregunta"]);
+            $this->mdlModel->__SET('tipoUsuario',$_POST["rdbGroupTipoP"]);
+            $this->mdlModel->__SET('respuestaSeguridad',$_POST["txtRespuesta"]);
+            $this->mdlModel->addUser();
+            header('location: '.URL.'sesion/index');
+        }
+    }
 
-    //     // where to go after song has been added
-    //     header('location: ' . URL . 'productos/index');
-    // }
-
-    // /**
-    //  * ACTION: deleteSong
-    //  * This method handles what happens when you move to http://yourproject/songs/deletesong
-    //  * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "delete a song" button on songs/index
-    //  * directs the user after the click. This method handles all the data from the GET request (in the URL!) and then
-    //  * redirects the user back to songs/index via the last line: header(...)
-    //  * This is an example of how to handle a GET request.
-    //  * @param int $song_id Id of the to-delete song
-    //  */
     // public function deleteSong($song_id)
     // {
     //     // if we have an id of a song that should be deleted
@@ -122,3 +99,5 @@ class productos extends Controller
     // }
 
 }
+
+ ?>

@@ -165,3 +165,22 @@ a,a:hover {
 .btn-twitter:hover {background-color:#3088FF;color:#62BBFF;}
 .btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
 .btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
+
+.color-white{
+  color: white;
+}
+.color-purple{
+  color: #000044 !important;
+}
+.padding{
+  padding: 15px;
+}
+.border-radius{
+  border-radius: 5px 5px 5px 5px;
+}
+.fondo{
+  background-color:  #000044;
+}
+.position{
+  margin-top: 10%;
+}

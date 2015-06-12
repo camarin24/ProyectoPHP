@@ -1,11 +1,10 @@
 <?php
-
-class productos extends Controller
+class pqr extends Controller
 {   
     private $mdlModel=null;
 
     function __construct(){
-        $this->mdlModel = $this->loadModel("mdlproductos");
+        $this->mdlModel = $this->loadModel("mdlpqr");
     }
     /**
      * PAGE: index
@@ -13,14 +12,10 @@ class productos extends Controller
      */
     public function index()
     {
-        // getting all songs and amount of songs
-        $songs = $this->mdlModel->getAllSongs();
-        $amount_of_songs = $this->mdlModel->getAmountOfSongs();
-
        // load views. within the views we can echo out $songs and $amount_of_songs easily
-        require APP . 'view/_templates/productos/header.php';
-        require APP . 'view/productos/index.php';
-        require APP . 'view/_templates/productos/footer.php';
+        require APP . 'view/_templates/pqr/header.php';
+        require APP . 'view/pqr/index.php';
+        require APP . 'view/_templates/pqr/footer.php';
     }
 
     // /**
