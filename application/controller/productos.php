@@ -14,8 +14,8 @@ class productos extends Controller
     public function index()
     {
         // getting all songs and amount of songs
-        $songs = $this->mdlModel->getAllSongs();
-        $amount_of_songs = $this->mdlModel->getAmountOfSongs();
+        /*$songs = $this->mdlModel->getAllSongs();
+        $amount_of_songs = $this->mdlModel->getAmountOfSongs();*/
 
        // load views. within the views we can echo out $songs and $amount_of_songs easily
         require APP . 'view/_templates/productos/header.php';
@@ -23,26 +23,47 @@ class productos extends Controller
         require APP . 'view/_templates/productos/footer.php';
     }
 
-    // /**
-    //  * ACTION: addSong
-    //  * This method handles what happens when you move to http://yourproject/songs/addsong
-    //  * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "add a song" form on songs/index
-    //  * directs the user after the form submit. This method handles all the POST data from the form and then redirects
-    //  * the user back to songs/index via the last line: header(...)
-    //  * This is an example of how to handle a POST request.
-    //  */
-    // public function addSong()
-    // {
-    //     // if we have POST data to create a new song entry
-    //     if (isset($_POST["submit_add_song"])) {
-    //         // do addSong() in model/model.php
-    //         $this->mdlModel->addSong($_POST["artist"], $_POST["track"],  $_POST["link"]);
-    //     }
+    /**
+     * ACTION: addSong
+     * This method handles what happens when you move to http://yourproject/songs/addsong
+     * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "add a song" form on songs/index
+     * directs the user after the form submit. This method handles all the POST data from the form and then redirects
+     * the user back to songs/index via the last line: header(...)
+     * This is an example of how to handle a POST request.
+     */
+    public function agregarProducto()
+    {
+        // if we have POST data to create a new song entry
+        if (isset($_POST["btnRegistrarProducto"])) {
+            // do addSong() in model/model.php
+            $this->mdlModel->agregarProducto();
+            $this->mdlModel->____SET('nombreProducto',$_POST["txtNombreProducto"]);
+            $this->mdlModel->____SET('existencias',$_POST["txtExistencias"]);
+            $this->mdlModel->____SET('fabricante',$_POST["txtFabricante"]);
+            $this->mdlModel->____SET('descripcion',$_POST["txtDescripcion"]);
+            $this->mdlModel->____SET('url',$_POST["txtURL"]);
+        }
 
-    //     // where to go after song has been added
-    //     header('location: ' . URL . 'productos/index');
-    // }
+        // where to go after song has been added
+        header('location: ' . URL . 'productos/index');
+    }
 
+    public function eliminarProductos()
+    {
+        // if we have POST data to create a new song entry
+        if (isset($_POST["btnEliminarProducto"])) {
+            // do addSong() in model/model.php
+            $this->mdlModel->eliminarProducto();
+            $this->mdlModel->____SET('nombreProducto',$_POST["txtNombreProducto"]);
+            $this->mdlModel->____SET('existencias',$_POST["txtExistencias"]);
+            $this->mdlModel->____SET('fabricante',$_POST["txtFabricante"]);
+            $this->mdlModel->____SET('descripcion',$_POST["txtDescripcion"]);
+            $this->mdlModel->____SET('url',$_POST["txtURL"]);
+        }
+
+        // where to go after song has been added
+        header('location: ' . URL . 'productos/index');
+    }
     // /**
     //  * ACTION: deleteSong
     //  * This method handles what happens when you move to http://yourproject/songs/deletesong

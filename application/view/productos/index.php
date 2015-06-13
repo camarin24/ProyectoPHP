@@ -1,5 +1,3 @@
-
-
 <div id="masthead">  
   <div class="container">
     <div class="row">
@@ -22,33 +20,33 @@
                     <h4 class="modal-title color-purple" id="myModalLabel">Registra tu producto</h4>
                   </div>
                   <div class="modal-body">
-                    <form action="" class="form-vertical">
+                    <form action="<?php echo URL ?>productos/agregarProducto" class="form-vertical"  method="post">
                       <div class="form-group">
                       <label for="">Nombre del producto</label>
-                        <input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario">
+                        <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto">
                       </div>
                       <div class="form-group">
                         <label for="">Existencias</label>
-                        <input type="text" class="form-control" id="txtContraseña" name="txtContraseña">
+                        <input type="text" class="form-control" id="txtExistencias" name="txtExistencias">
                       </div>
                       <div class="form-group">
                         <label for="">Fabricante</label>
-                        <input type="text" class="form-control" id="txtContraseña" name="txtContraseña">
+                        <input type="text" class="form-control" id="txtFabricante" name="txtFabricante">
                       </div>
                       <div class="form-group">
                         <label for="">Descripción</label>
-                        <textarea class="form-control" name="" id="" cols="0" rows="5"></textarea>
+                        <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="0" rows="5"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="">Imagen</label>
-                         <input type="file" id="exampleInputFile">
+                         <input type="file" id="txtURL" name="txtURL">
                       </div>
                      
                     </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-primary" name="btnRegistrarProducto">Registrar</button>
                   </div>
                 </div>
               </div>
