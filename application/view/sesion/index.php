@@ -13,9 +13,10 @@
 						<input name="txtContrasenia" type="text" class="form-control">
 					</div>
 					<div class="form-group">
-			
-						<button  name="btnIngresar" class="btn btn-primary">Ingresar</button>
-						<a class="btn btn-danger" href="<?php echo URL ?>registrar/index">Registrarse</a>
+						<div class="row">
+							<div class="col-md-6"><button  name="btnIngresar" class="btn btn-primary">Ingresar</button></div>
+							<div class="col-md-3"><a class="btn btn-danger" href="<?php echo URL ?>registrar/index">Registrarse</a></div>
+						</div>	
 					</div>
 
 

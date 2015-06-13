@@ -26,7 +26,7 @@
 							<option value="1">¿Cual es el nombre de tu primer mascota?</option>
 							<option value="2">¿Donde vive tu papá?</option>
 							<option value="3">¿Como se llama tu mejor amigo?</option>
-							<option value="4">¿Cual era tu materia favorito?</option>
+							<option value="4">¿Cual es tu materia favorita?</option>
 						</select>
 					</div>
 					<div class="form-group">
