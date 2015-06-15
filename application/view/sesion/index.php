@@ -3,7 +3,7 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<div class="panel border-radius padding sombra">
-				<form action="" class="form">
+				<form action="<?php echo URL ?>sesion/addUser1" class="form">
 					<div class="form-group">
 						<label for="">Nombre de usuario</label>
 						<input name="txtNombreUsuario" type="text" class="form-control">

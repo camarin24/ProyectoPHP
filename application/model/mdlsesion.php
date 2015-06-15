@@ -2,6 +2,9 @@
 class mdlsesion
 {
     private $db=null;
+    private $nombreUsuario;
+    private $contrasenia;
+    private $ingresar;
 
     function __construct($db){
         try {
@@ -10,14 +13,6 @@ class mdlsesion
             exit('Database connection could not be established.');
         }
     }
-
-    private $nombre;
-    private $apellido;
-    private $nombreUsuario;
-    private $contrasenia;
-    private $preguntaSeguridad;
-    private $tipoUsuario;
-    private $respuestaSeguridad;
      
     public function __GET($variable){
         return $this->$variable;
@@ -30,17 +25,41 @@ class mdlsesion
 
     public function addUser()
     {
-        $sql = "INSERT INTO usuarios (nombre, apellido, nombreUsuario,contrasenia,preguntaSeguridad,tipoUsuario,respuestaSeguridad) VALUES (?,?,?,?,?,?,?)";
+        echo '<script language="javascript">alert("Alert1");</script>'; 
+        /*SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = 'Juan' and `contrasenia` = '123'*/
+        $sql = "SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = '?' and `contrasenia` = '?'";
         $query = $this->db->prepare($sql);
 
-        $parameters->bindValue(1,$this->__GET('nombre'));
-        $parameters->bindValue(2,$this->__GET('apellido'));
-        $parameters->bindValue(3,$this->__GET('nombreUsuario'));
-        $parameters->bindValue(4,$this->__GET('contrasenia'));
-        $parameters->bindValue(5,$this->__GET('preguntaSeguridad'));
-        $parameters->bindValue(6,$this->__GET('tipoUsuario'));
-        $parameters->bindValue(7,$this->__GET('respuestaSeguridad'));
+        $query->bindValue(1,$this->__GET('nombreUsuario'));
+        $query->bindValue(2,$this->__GET('contrasenia'));
         $query->execute();
+        echo '<script language="javascript">alert("Aler2");</script>'; 
+        return $query->fetch(PDO::FETCH_ASSOC);
+
+        //////////////////////
+
+    }
+
+        public function addUser1()
+    {
+        echo '<script language="javascript">alert("Alert1");</script>'; 
+        /*SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = 'Juan' and `contrasenia` = '123'*/
+        $sql = "SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = '?' and `contrasenia` = '?'";
+        $query = $this->db->prepare($sql);
+
+        $query->bindValue(1,$this->__GET('nombreUsuario'));
+        $query->bindValue(2,$this->__GET('contrasenia'));
+        $query->execute();
+        $datos = mysql_num_rows($query);
+        if($datos>0){
+            $ingresar=1;
+        }else{
+            $ingresar=0;
+        }
+        return $ingresar;
+
+        //////////////////////
+        
     }
 
     /**

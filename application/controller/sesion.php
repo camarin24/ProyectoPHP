@@ -27,17 +27,48 @@ class sesion extends Controller
     //  * the user back to songs/index via the last line: header(...)
     //  * This is an example of how to handle a POST request.
     //  */
-    public function addUser()
+    /*public function addUser()
     {
         // if we have POST data to create a new song entry
         if (isset($_POST["btnIngresar"])) {
             // do addSong() in model/model.php
-            $this->mdlModel->adduser($_POST["txtNombreUsuario"], $_POST["txtContrasenia"]);
+            $this->mdlModel->__SET('nombreUsuario',$_POST["txtNombreUsuario"]);
+            $this->mdlModel->__SET('contrasenia',$_POST["txtContrasenia"]);
+            $resultado = $mdlModel->addUser();
+            if($resultado != false)
+            {
+                if(($resultado["contrasenia"]) == trim($_POST["txtContrasenia"])){
+                header('location: ' . URL . 'productos/index');
+            }else{
+                $mensaje = "La clave no es correcta";
+            }
+        }else{
+            $mensaje = "El usuario no es correcto";
+        }
         }
 
-        // where to go after song has been added
-        header('location: ' . URL . 'productos/index');
+    }*/
+
+    public function addUser1()
+    {
+        // if we have POST data to create a new song entry
+        if (isset($_POST["btnIngresar"])) {
+            // do addSong() in model/model.php
+            $this->mdlModel->__SET('nombreUsuario',$_POST["txtNombreUsuario"]);
+            $this->mdlModel->__SET('contrasenia',$_POST["txtContrasenia"]);
+            $resultado = $mdlModel->addUser1();
+            if($resultado == 1)
+            {
+                 echo '<script language="javascript">alert("Datos correctos");</script>'; 
+                header('location: ' . URL . 'productos/index');
+            }else{
+                echo '<script language="javascript">alert("Datos incocorrectos");</script>'; 
+            }
+        }
     }
+
+
+        // where to go after song has been added
 
     // /**
     //  * ACTION: deleteSong
