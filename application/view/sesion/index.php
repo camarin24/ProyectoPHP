@@ -10,7 +10,7 @@
 					</div>
 					<div class="form-group">
 						<label for="">Contraseña</label>
-						<input name="txtContrasenia" type="text" class="form-control">
+						<input name="txtContrasenia" type="password" class="form-control">
 					</div>
 					<div class="form-group">
 						<div class="row">
@@ -18,8 +18,6 @@
 							<div class="col-md-3"><a class="btn btn-danger" href="<?php echo URL ?>registrar/index">Registrarse</a></div>
 						</div>	
 					</div>
-
-
 				</form>
 			</div>
 		</div>

@@ -33,14 +33,6 @@
 
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="javascript:proyecto.modal(myModalL)">Ingresar</a>
-          </li>
-          <li>
-            <a href="javascript:proyecto.modal(myModalR)">Registrarse</a>
-          </li>
-        </ul>
         <ul class="nav navbar-right navbar-nav">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>

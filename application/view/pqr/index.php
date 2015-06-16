@@ -7,47 +7,26 @@
         <h4 class="modal-title" id="myModalLabel">Registrate</h4>
       </div>
       <div class="modal-body">
-        <form action="" class="form-vertical">
+        <form action="" class="form-vertical" method="post">
           <div class="form-group">
-            <label for="">Nombre</label>
-            <input type="text" class="form-control" id="txtNombre" name="txtNombre">
+            <label for="">Tipo de Pqr</label>
+            <input type="text" class="form-control" id="txtTipoPqr" name="txtTipoPqr">
           </div>
           <div class="form-group">
-            <label for="">Apellido</label>
-            <input type="text" class="form-control" id="txtApellido" name="txtApellido">
+            <label for="">Titulo pqr</label>
+            <input type="text" class="form-control" id="txTtitulo" name="txTtitulo">
           </div>
           <div class="form-group">
-            <label for="">Nombre de usuario</label>
-            <input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario">
+            <label for="">Descripcion</label>
+            <textarea class="form-control" id="txtCategoria" name="txtCategoria"></textarea>
           </div>
-          <div class="form-group">
-            <label for="">Contraseña</label>
-            <input type="password" class="form-control" id="txtContraseña" name="txtContraseña">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCerrar">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btnRegistrarse">Registrarse</button>
           </div>
-          <div class="form-group">
-            <label for="">Pregunta de seguridad</label>
-            <select class="form-control">
-              <option>¿Cual es el nombre de tu primer mascota?</option>
-              <option>¿Donde vive tu papá?</option>
-              <option>¿Como se llama tu mejor amigo?</option>
-              <option>¿Cual era tu materia favorito?</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="">Respuesta de seguridad</label>
-            <input type="text" class="form-control" id="txtRespuesta" name="txtRespuesta">
-          </div>
-          <div class="form-group">
-            <label for="">Tipo usuario</label>
-            <input type="text" class="form-control" id="txtTipoUsuario" name="txtTipoUsuario">
-          </div>
-
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCerrar">Cerrar</button>
-        <button type="button" class="btn btn-primary" id="btnRegistrarse">Registrarse</button>
-      </div>
+     </div>
+
     </div>
   </div>
 </div>

@@ -12,7 +12,7 @@ class mdlproductos
     private $fabricante;
     private $descripcion;
     private $url;
-    private $Estado;
+    private $estado;
 
     function __construct($db)
     {
@@ -30,9 +30,6 @@ class mdlproductos
         $this->$variable=$valor;
     }
 
-    /**
-     * Get all songs from database
-     */
     public function listarProductos()
     {
         $sql = "SELECT id, nombreProducto, estado, existencias,fabricante,descripcion,url FROM productos";
@@ -46,26 +43,16 @@ class mdlproductos
         return $query->fetchAll();
     }
 
-    /**
-     * Add a song to database
-     * TODO put this explanation into readme and remove it from here
-     * Please note that it's not necessary to "clean" our input in any way. With PDO all input is escaped properly
-     * automatically. We also don't use strip_tags() etc. here so we keep the input 100% original (so it's possible
-     * to save HTML and JS to the database, which is a valid use case). Data will only be cleaned when putting it out
-     * in the views (see the views for more info).
-     * @param string $artist Artist
-     * @param string $track Track
-     * @param string $link Link
-     */
     public function agregarProducto()
     {
-        $sql = "INSERT INTO productos (nombreProducto, existencias,fabricante,descripcion,url) VALUES (?,?,?,?,?)";
+        $sql = "INSERT INTO productos (nombreProducto, estado, existencias,fabricante,descripcion,url) VALUES (?,?,?,?,?,?)";
         $query = $this->db->prepare($sql);
         $query->bindValue(1,$this->__GET('nombreProducto'));
-        $query->bindValue(2,$this->__GET('existencias'));
-        $query->bindValue(3,$this->__GET('fabricante'));
-        $query->bindValue(4,$this->__GET('descripcion'));
-        $query->bindValue(5,$this->__GET('url'));
+        $query->bindValue(2,$this->__GET('estado'));
+        $query->bindValue(3,$this->__GET('existencias'));
+        $query->bindValue(4,$this->__GET('fabricante'));
+        $query->bindValue(5,$this->__GET('descripcion'));
+        $query->bindValue(6,$this->__GET('url'));
 
         // useful for debugging: you can see the SQL behind above construction by using:
         // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
@@ -73,12 +60,6 @@ class mdlproductos
         $query->execute();
     }
 
-    /**
-     * Delete a song in the database
-     * Please note: this is just an example! In a real application you would not simply let everybody
-     * add/update/delete stuff!
-     * @param int $song_id Id of song
-     */
     public function eliminarProducto()
     {
         $sql = "DELETE FROM Productos WHERE id = ?";
@@ -105,17 +86,14 @@ class mdlproductos
         $query->execute($parameters);
     }
 
-    /**
-     * Get simple "stats". This is just a simple demo to show
-     * how to use more than one model in a controller (see application/controller/songs.php for more)
-     */
-    public function getAmountOfSongs()
+     public function consultar()
     {
-        $sql = "SELECT COUNT(id) AS amount_of_songs FROM song";
+        $sql = "SELECT * FROM productos";
         $query = $this->db->prepare($sql);
         $query->execute();
-
-        // fetch() is the PDO method that get exactly one result
-        return $query->fetch()->amount_of_songs;
+        
+        return $query->fetchAll();
     }
+
+
 }

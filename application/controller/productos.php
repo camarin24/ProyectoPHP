@@ -1,18 +1,16 @@
 <?php
 
-class productos extends Controller
-{   
+class productos extends Controller{   
     private $mdlModel=null;
 
     function __construct(){
         $this->mdlModel = $this->loadModel("mdlproductos");
     }
-    /**
-     * PAGE: index
-     * This method handles what happens when you move to http://yourproject/songs/index
-     */
-    public function index()
-    {
+    public function index($v=0){
+        if($v == 1){
+            echo "se registro";
+        }
+        $lista = $this->mdlModel->consultar();
         // getting all songs and amount of songs
         /*$songs = $this->mdlModel->getAllSongs();
         $amount_of_songs = $this->mdlModel->getAmountOfSongs();*/
@@ -23,47 +21,64 @@ class productos extends Controller
         require APP . 'view/_templates/productos/footer.php';
     }
 
-    /**
-     * ACTION: addSong
-     * This method handles what happens when you move to http://yourproject/songs/addsong
-     * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "add a song" form on songs/index
-     * directs the user after the form submit. This method handles all the POST data from the form and then redirects
-     * the user back to songs/index via the last line: header(...)
-     * This is an example of how to handle a POST request.
-     */
-    public function agregarProducto()
-    {
+    public function agregarProducto(){
+        $v = "0";
         // if we have POST data to create a new song entry
         if (isset($_POST["btnRegistrarProducto"])) {
-            // do addSong() in model/model.php
-            $this->mdlModel->agregarProducto();
-            $this->mdlModel->____SET('nombreProducto',$_POST["txtNombreProducto"]);
-            $this->mdlModel->____SET('existencias',$_POST["txtExistencias"]);
-            $this->mdlModel->____SET('fabricante',$_POST["txtFabricante"]);
-            $this->mdlModel->____SET('descripcion',$_POST["txtDescripcion"]);
-            $this->mdlModel->____SET('url',$_POST["txtURL"]);
+
+            $this->mdlModel->__SET('nombreProducto',$_POST["txtNombreProducto"]);
+            $this->mdlModel->__SET('estado',$_POST["txtEstado"]);
+            $this->mdlModel->__SET('existencias',$_POST["txtExistencias"]);
+            $this->mdlModel->__SET('fabricante',$_POST["txtFabricante"]);
+            $this->mdlModel->__SET('descripcion',$_POST["txtDescripcion"]);
+            
+            $target_dir = "upload/";
+
+            $target_file = $target_dir . basename($_FILES["txtURL"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                $uploadOk = 0;
+            }
+
+                if (move_uploaded_file($_FILES["txtURL"]["tmp_name"], $target_file)) {
+                    $this->mdlModel->__SET('url', $target_file);
+                
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }
+            
+
+
+            if($this->mdlModel->agregarProducto()){
+                $v = "1";
+            }
         }
 
         // where to go after song has been added
-        header('location: ' . URL . 'productos/index');
+        header('location: ' . URL . 'productos/index/'.$v.'');
     }
 
-    public function eliminarProductos()
-    {
-        // if we have POST data to create a new song entry
-        if (isset($_POST["btnEliminarProducto"])) {
-            // do addSong() in model/model.php
-            $this->mdlModel->eliminarProducto();
-            $this->mdlModel->____SET('nombreProducto',$_POST["txtNombreProducto"]);
-            $this->mdlModel->____SET('existencias',$_POST["txtExistencias"]);
-            $this->mdlModel->____SET('fabricante',$_POST["txtFabricante"]);
-            $this->mdlModel->____SET('descripcion',$_POST["txtDescripcion"]);
-            $this->mdlModel->____SET('url',$_POST["txtURL"]);
-        }
+    // public function eliminarProductos(){
+    //     // if we have POST data to create a new song entry
+    //     if (isset($_POST["btnEliminarProducto"])) {
+    //         // do addSong() in model/model.php
+    //         $this->mdlModel->eliminarProducto();
+    //         $this->mdlModel->__SET('nombreProducto',$_POST["txtNombreProducto"]);
+    //         $this->mdlModel->__SET('existencias',$_POST["txtExistencias"]);
+    //         $this->mdlModel->__SET('fabricante',$_POST["txtFabricante"]);
+    //         $this->mdlModel->__SET('descripcion',$_POST["txtDescripcion"]);
+    //         $this->mdlModel->__SET('url',$_POST["txtURL"]);
+    //     }
 
-        // where to go after song has been added
-        header('location: ' . URL . 'productos/index');
-    }
+    //     // where to go after song has been added
+    //     header('location: ' . URL . 'productos/index');
+    // }
     // /**
     //  * ACTION: deleteSong
     //  * This method handles what happens when you move to http://yourproject/songs/deletesong
