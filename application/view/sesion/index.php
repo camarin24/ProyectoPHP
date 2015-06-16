@@ -3,7 +3,7 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<div class="panel border-radius padding sombra">
-				<form action="<?php echo URL ?>sesion/addUser1" class="form">
+				<form action="<?php echo URL ?>sesion/addUser1" class="form" method="post">
 					<div class="form-group">
 						<label for="">Nombre de usuario</label>
 						<input name="txtNombreUsuario" type="text" class="form-control">
@@ -14,7 +14,7 @@
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-md-6"><button  name="btnIngresar" class="btn btn-primary">Ingresar</button></div>
+							<div class="col-md-6"><button  name="btnIngresar" type="submit" class="btn btn-primary">Ingresar</button></div>
 							<div class="col-md-3"><a class="btn btn-danger" href="<?php echo URL ?>registrar/index">Registrarse</a></div>
 						</div>	
 					</div>

@@ -23,44 +23,35 @@ class mdlsesion
     }
 
 
-    public function addUser()
-    {
-        echo '<script language="javascript">alert("Alert1");</script>'; 
+        public function addUser1(){
+        echo '<script language="javascript">alert("Entro");</script>'; 
         /*SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = 'Juan' and `contrasenia` = '123'*/
-        $sql = "SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = '?' and `contrasenia` = '?'";
+        $sql = "SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = ? and `contrasenia` = ?";
         $query = $this->db->prepare($sql);
-
-        $query->bindValue(1,$this->__GET('nombreUsuario'));
-        $query->bindValue(2,$this->__GET('contrasenia'));
+        $query->bindValue(1,$this->__GET('nombreUsuario'),PDO::PARAM_STR);
+        $query->bindValue(2,$this->__GET('contrasenia'),PDO::PARAM_STR);
         $query->execute();
-        echo '<script language="javascript">alert("Aler2");</script>'; 
-        return $query->fetch(PDO::FETCH_ASSOC);
-
-        //////////////////////
-
-    }
-
-        public function addUser1()
-    {
-        echo '<script language="javascript">alert("Alert1");</script>'; 
-        /*SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = 'Juan' and `contrasenia` = '123'*/
-        $sql = "SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = '?' and `contrasenia` = '?'";
-        $query = $this->db->prepare($sql);
-
-        $query->bindValue(1,$this->__GET('nombreUsuario'));
-        $query->bindValue(2,$this->__GET('contrasenia'));
-        $query->execute();
-        $datos = mysql_num_rows($query);
-        if($datos>0){
-            $ingresar=1;
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        // print_r($result);
+        // print_r($this->__GET('nombreUsuario'));
+        if($result){
+            echo '<script language="javascript">alert("Datos correctos");</script>'; 
+            header('location: ' . URL . 'productos/index');
         }else{
-            $ingresar=0;
+            echo '<script language="javascript">alert("Datos incorrectos");</script>';
+            header('location: ' . URL . 'sesion/index'); 
         }
-        return $ingresar;
-
-        //////////////////////
+        // $datos = mysql_num_rows($query);
+        // if($datos>0){
+        //     $ingresar=1;
+        // }else{
+        //     $ingresar=0;
+        // }
+        // return $ingresar; 
         
     }
+
+    
 
     /**
      * Delete a song in the database
