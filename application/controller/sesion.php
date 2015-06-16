@@ -60,27 +60,7 @@ class sesion extends Controller
         }
     }
 
-    public function addUser2(){
-        if (isset($_POST["btnIngresar"])) {
-            $this->mdlModel->__SET('nombreUsuario',$_POST["txtNombreUsuario"]);
-            $this->mdlModel->__SET('contrasenia',$_POST["txtContrasenia"]);
-            $this->mdlModel->addUser();
-            header('location: '.URL.'sesion/index');
-        }
-    }
 
-
-        // where to go after song has been added
-
-    // /**
-    //  * ACTION: deleteSong
-    //  * This method handles what happens when you move to http://yourproject/songs/deletesong
-    //  * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "delete a song" button on songs/index
-    //  * directs the user after the click. This method handles all the data from the GET request (in the URL!) and then
-    //  * redirects the user back to songs/index via the last line: header(...)
-    //  * This is an example of how to handle a GET request.
-    //  * @param int $song_id Id of the to-delete song
-    //  */
     // public function deleteSong($song_id)
     // {
     //     // if we have an id of a song that should be deleted
