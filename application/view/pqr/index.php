@@ -1,62 +1,4 @@
-<!-- Modal del registro -->
-<div class="modal fade color-purple" id="myModalR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Registrate</h4>
-      </div>
-      <div class="modal-body">
-        <form action="" class="form-vertical" method="post">
-          <div class="form-group">
-            <label for="">Tipo de Pqr</label>
-            <input type="text" class="form-control" id="txtTipoPqr" name="txtTipoPqr">
-          </div>
-          <div class="form-group">
-            <label for="">Titulo pqr</label>
-            <input type="text" class="form-control" id="txTtitulo" name="txTtitulo">
-          </div>
-          <div class="form-group">
-            <label for="">Descripcion</label>
-            <textarea class="form-control" id="txtCategoria" name="txtCategoria"></textarea>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="btnCerrar">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="btnRegistrarse">Registrarse</button>
-          </div>
-        </form>
-     </div>
 
-    </div>
-  </div>
-</div>
-<!-- Modal del Login -->
-<div class="modal fade color-purple" id="myModalL" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Ingresa</h4>
-      </div>
-      <div class="modal-body">
-        <form action="" class="form-vertical">
-          <div class="form-group">
-            <label for="">Nombre de usuario</label>
-            <input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario">
-          </div>
-          <div class="form-group">
-            <label for="">Contraseña</label>
-            <input type="text" class="form-control" id="txtContraseña" name="txtContraseña">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Iniciar sesion</button>
-      </div>
-    </div>
-  </div>
-</div>
 <div id="masthead">  
   <div class="container">
     <div class="row">
@@ -81,32 +23,33 @@
                   <div class="modal-body">
                     <form action="" class="form-vertical">
                       <div class="form-group">
-                      <label for="">Nombre del producto</label>
+                        <label for="">Titulo</label>
                         <input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario">
                       </div>
                       <div class="form-group">
-                        <label for="">Existencias</label>
+                        <label for="">Categoria</label>
                         <input type="text" class="form-control" id="txtContraseña" name="txtContraseña">
                       </div>
                       <div class="form-group">
-                        <label for="">Fabricante</label>
-                        <input type="text" class="form-control" id="txtContraseña" name="txtContraseña">
+                      <label for="">Tipo</label>
+                        <select class="form-control" name="ddlPregunta">
+                          <option value="1">¿Cual es el nombre de tu primer mascota?</option>
+                          <option value="2">¿Donde vive tu papá?</option>
+                          <option value="3">¿Como se llama tu mejor amigo?</option>
+                          <option value="4">¿Cual es tu materia favorita?</option>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label for="">Descripción</label>
                         <textarea class="form-control" name="" id="" cols="0" rows="5"></textarea>
                       </div>
-                      <div class="form-group">
-                        <label for="">Imagen</label>
-                         <input type="file" id="exampleInputFile">
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Registrar</button>
                       </div>
-                     
                     </form>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Registrar</button>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -131,7 +74,7 @@
       <div class="panel">
         <div class="panel-body">
           <!--/stories-->
-       
+
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
