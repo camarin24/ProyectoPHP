@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path

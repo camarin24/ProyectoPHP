@@ -1,7 +1,7 @@
 
 <div id="masthead">  
   <div class="container">
-    <div class="row">
+    <div class="row"> 
       <div class="col-md-7">
         <h1>PQR
           <p class="lead"></p>
@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-sm-12">
              <h2 class="color-white"><a href="javascript:proyecto.modal(myModalP)" class="color-white">Registrar PQR</a></h2>
-
+            
              <div class="modal fade color-purple" id="myModalP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -21,31 +21,33 @@
                     <h4 class="modal-title color-purple" id="myModalLabel">Registra tu PQR</h4>
                   </div>
                   <div class="modal-body">
-                    <form action="" class="form-vertical">
+                    <form action="<?php echo URL ?>pqr/agregarPqr" class="form-vertical" method="post">
                       <div class="form-group">
+                        <label for="">Objeto de la solicitud</label>
+                        <select class="form-control" name="txtTipoPqr">
+                          <option value="Peticion">Petición</option>
+                          <option value="Queja">Queja</option>
+                        </select>
+                      </div>                      <div class="form-group">
                         <label for="">Titulo</label>
-                        <input type="text" class="form-control" id="txtNombreUsuario" name="txtNombreUsuario">
+                        <input type="text" class="form-control" id="txtTitulo" name="txtTitulo">
                       </div>
                       <div class="form-group">
                         <label for="">Categoria</label>
-                        <input type="text" class="form-control" id="txtContraseña" name="txtContraseña">
-                      </div>
-                      <div class="form-group">
-                      <label for="">Tipo</label>
-                        <select class="form-control" name="ddlPregunta">
-                          <option value="1">¿Cual es el nombre de tu primer mascota?</option>
-                          <option value="2">¿Donde vive tu papá?</option>
-                          <option value="3">¿Como se llama tu mejor amigo?</option>
-                          <option value="4">¿Cual es tu materia favorita?</option>
+                        <select class="form-control" name="txtCategoria">
+                          <option value="P">Productos</option>
+                          <option value="I">Inventario</option>
+                          <option value="C">Cartera</option>
+                          <option value="O">Otra</option>
                         </select>
-                      </div>
+                      </div> 
                       <div class="form-group">
                         <label for="">Descripción</label>
-                        <textarea class="form-control" name="" id="" cols="0" rows="5"></textarea>
+                        <textarea class="form-control" name="txtDescripcion" id="txtDescripcion" cols="0" rows="5"></textarea>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Registrar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-default" name="btnPQR" >Registar PQR</button>
                       </div>
                     </form>
                   </div>
@@ -75,26 +77,36 @@
         <div class="panel-body">
           <!--/stories-->
 
+          <?php foreach ($listapqr as $key => $value): ?>
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/men/29.jpg" style="width:100px;height:100px" class="img-circle"></a>
+              <h1><?php echo $value->categoria ?></h1>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3>TrendPaper - What's Trending in the World</h3>
+              <h3><?php echo $value->titulo ?></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default">betali.st</span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">Last week • <a href="#" class="text-muted">Read More</a></small>
+                  <h4><span class="label label-default"><?php echo $value->tipoPqr ?></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted">Descripción: <?php echo $value->descripcion ?></small>
                 </h4></div>
                 <div class="col-xs-3"></div>
+                <?php if ($_SESSION['tipoUsuario'] == '1'){ ?>
+              <br><br>
+                <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-3"><a class="btn btn-danger" href="<?php echo URL .'pqr/eliminarPqr/'.$value->idPqr ?>">Eliminar PQR</a></div>
+                    </div> 
+                 </div> 
+               <?php }; ?>
               </div>
               <br><br>
             </div>
           </div>
           <hr>
+        <?php endforeach; ?>
           <!--/stories-->
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>  
+          
         </div>
       </div>
     </div><!--/col-12-->

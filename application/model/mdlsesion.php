@@ -4,6 +4,8 @@ class mdlsesion
     private $db=null;
     private $nombreUsuario;
     private $contrasenia;
+    private $respuestaSeguridad;
+    private $preguntaSeguridad;
     private $ingresar;
 
     function __construct($db){
@@ -24,34 +26,29 @@ class mdlsesion
 
 
         public function addUser1(){
-        echo '<script language="javascript">alert("Entro");</script>'; 
         /*SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = 'Juan' and `contrasenia` = '123'*/
-        $sql = "SELECT `nombreUsuario`,`contrasenia` FROM `usuarios` WHERE `nombreUsuario` = ? and `contrasenia` = ?";
+        $sql = "SELECT * FROM `usuarios` WHERE `nombreUsuario` = ? and `contrasenia` = ?";
         $query = $this->db->prepare($sql);
         $query->bindValue(1,$this->__GET('nombreUsuario'),PDO::PARAM_STR);
         $query->bindValue(2,$this->__GET('contrasenia'),PDO::PARAM_STR);
         $query->execute();
         $result = $query->fetch(PDO::FETCH_ASSOC);
-        // print_r($result);
-        // print_r($this->__GET('nombreUsuario'));
-        if($result){
-            echo '<script language="javascript">alert("Datos correctos");</script>'; 
-            header('location: ' . URL . 'productos/index');
-        }else{
-            echo '<script language="javascript">alert("Datos incorrectos");</script>';
-            header('location: ' . URL . 'sesion/index'); 
-        }
-        // $datos = mysql_num_rows($query);
-        // if($datos>0){
-        //     $ingresar=1;
-        // }else{
-        //     $ingresar=0;
-        // }
-        // return $ingresar; 
-        
-    }
+        return $result;
+        }   
 
-    
+        public function recuperar(){
+            $sql="SELECT nombreUsuario,contrasenia,preguntaSeguridad,respuestaSeguridad from usuarios where nombreUsuario= ? and preguntaSeguridad = ? and respuestaSeguridad = ?";
+            $query = $this->db->prepare($sql);
+            $query->bindValue(1,$this->__GET('nombreUsuario'),PDO::PARAM_STR);
+            $query->bindValue(2,$this->__GET('preguntaSeguridad'),PDO::PARAM_STR);
+            $query->bindValue(2,$this->__GET('respuestaSeguridad'),PDO::PARAM_STR);
+            $result= $query->fetch(PDO::FETCH_ASSOC);
+        return $result;
+        }
+
+        public function recuperarContrasenia(){
+            $sql="";
+        }
 
     /**
      * Delete a song in the database
