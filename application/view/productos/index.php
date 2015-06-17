@@ -87,7 +87,7 @@
               <h3><?php echo $value->nombreProducto ?></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default">existencias: <?php echo $value->existencias ?></span></h4><h4>
+                  <h4><span class="label label-default">Existencias: <?php echo $value->existencias ?></span></h4><h4>
                   <small style="font-family:courier,'new courier';" class="text-muted">Fabricante • <?php echo $value->fabricante ?></small><br>  
                   <small style="font-family:courier,'new courier';" class="text-muted">Descripción • <?php echo $value->descripcion ?></small>
                 </h4></div>
