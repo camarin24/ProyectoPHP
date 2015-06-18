@@ -8,12 +8,21 @@ class sesion extends Controller
         $this->mdlModel = $this->loadModel("mdlsesion");
     } 
 
-    public function index()
+    public function index() 
     {
+        // $listaSesion = $this->mdlModel->consultar();
        // load views. within the views we can echo out $songs and $amount_of_songs easily
         require APP . 'view/_templates/sesion/header.php';
         require APP . 'view/sesion/index.php';
         require APP . 'view/_templates/sesion/footer.php';
+    }
+
+        public function consultar(){
+        $sql = "SELECT * FROM usuarios";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        
+        return $query->fetchAll();
     }
 
     public function addUser1()
@@ -31,20 +40,22 @@ class sesion extends Controller
                 header('location: '.URL.'productos/index');
             }else{
                 echo '<script language="javascript">alert("Datos incorrectos");</script>'; 
+                header('location: '.URL.'sesion/index');
             }
         }
     }
-
-
     public function recuperar(){
         if (isset($_POST["btnRecuperar"])){
             $this->mdlModel->__SET('nombreUsuario',$_POST["txtNombreUsuario"]);
             $this->mdlModel->__SET('preguntaSeguridad',$_POST["txtPregunta"]);
             $this->mdlModel->__SET('respuestaSeguridad',$_POST["txtRespuesta"]);
-            $flag=$this->mdlModel->recuperar();
-            if($flag != false){
-                $this->mdlModel->nuevoContrasenia();
+            $bandera=$this->mdlModel->recuperar(); 
+            if($bandera != false){ 
+                $this->mdlModel->__SET('nuevaContrasenia',$_POST["txtNuevaContrasenia"]);
+                $this->mdlModel->recuperarContrasenia($bandera);
                 header('location: '.URL.'sesion/index');
+            }else{
+                echo '<script language="javascript">alert("Datos Erroneos,intentelo de nuevo");</script>'; 
             }
             
         }

@@ -22,6 +22,7 @@
                     </div>
                     <div class="modal-body">
                       <form action="<?php echo URL?>productos/agregarProducto" class="form-vertical"  method="post" enctype="multipart/form-data">
+                        <?php if ($_SESSION['tipoUsuario'] == '2'){ ?>
                         <div class="form-group">
                           <label for="">Nombre del producto</label>
                           <input type="text" class="form-control" id="txtNombreProducto" name="txtNombreProducto">
@@ -30,6 +31,7 @@
                           <label for="">Estado</label>
                           <input type="text" class="form-control" id="txtEstado" name="txtEstado">
                         </div>
+                         <?php }; ?>
                         <div class="form-group">
                           <label for="">Existencias</label>
                           <input type="text" class="form-control" id="txtExistencias" name="txtExistencias">

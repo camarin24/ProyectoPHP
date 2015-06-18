@@ -7,6 +7,7 @@ class mdlsesion
     private $respuestaSeguridad;
     private $preguntaSeguridad;
     private $ingresar;
+    private $nuevaContrasenia;
 
     function __construct($db){
         try {
@@ -36,18 +37,34 @@ class mdlsesion
         return $result;
         }   
 
+
         public function recuperar(){
-            $sql="SELECT nombreUsuario,contrasenia,preguntaSeguridad,respuestaSeguridad from usuarios where nombreUsuario= ? and preguntaSeguridad = ? and respuestaSeguridad = ?";
-            $query = $this->db->prepare($sql);
-            $query->bindValue(1,$this->__GET('nombreUsuario'),PDO::PARAM_STR);
-            $query->bindValue(2,$this->__GET('preguntaSeguridad'),PDO::PARAM_STR);
-            $query->bindValue(2,$this->__GET('respuestaSeguridad'),PDO::PARAM_STR);
-            $result= $query->fetch(PDO::FETCH_ASSOC);
+            $sql="SELECT idUsuario FROM `usuarios` WHERE nombreUsuario = ? and preguntaSeguridad = ? and respuestaSeguridad = ?";
+            $query = $this->db->prepare($sql);  
+             $query->bindValue(1,$this->__GET('nombreUsuario'),PDO::PARAM_STR);
+             $query->bindValue(2,$this->__GET('preguntaSeguridad'),PDO::PARAM_STR);
+             $query->bindValue(3,$this->__GET('respuestaSeguridad'),PDO::PARAM_STR);
+             $query->execute();
+             $result= $query->fetch(PDO::FETCH_ASSOC);
+            // echo '<script type="text/javascript">alert("'.$result["idUsuario"].'");</script>'; 
+            $result = $result["idUsuario"];
+            print_r($result); 
         return $result;
         }
 
-        public function recuperarContrasenia(){
-            $sql="";
+
+        public function recuperarContrasenia($id){
+              $sql = "UPDATE usuarios SET contrasenia = ? WHERE idUsuario = ?";
+              $query = $this->db->prepare($sql);
+              $query->bindValue(1,$this->__GET('nuevaContrasenia'));
+              $query->bindValue(2,$id);
+              $query->execute();
+
+                  // public function eliminarProducto($idProducto){
+                  //           $this->mdlModel->__SET('idProducto',$idProducto);
+                  //           $this->mdlModel->eliminarProducto();
+                  //       header('location: ' . URL . 'productos/index');
+                  //   }
         }
 
     /**

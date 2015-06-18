@@ -25,6 +25,9 @@
 				</form>
 			</div>
 		</div>
+<!-- 		<?php foreach ($listaSesion as $key => $value): ?>
+		<?php endforeach; ?> -->	
+		
 		<div class="col-md-4"></div>
 		<div class="modal fade color-purple" id="myModalRC" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">

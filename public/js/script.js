@@ -4,7 +4,7 @@ var proyecto = {
 	},
 	modificar:function(md,nombre,estado,existencias,fabricante,descripcion,id){
 		$(md).modal();
-		$('#txtNombreProductoM').val(nombre);
+		$('#txtEstadoMtxtNombreProductoM').val(nombre);
 		$('#txtEstadoM').val(estado);
 		$('#txtExistenciasM').val(existencias);
 		$('#txtFabricanteM').val(fabricante);
